@@ -5,7 +5,6 @@ import logging
 
 from rasa.constants import DEFAULT_MODELS_PATH
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -190,3 +189,14 @@ def print_error(*args: Any):
 def signal_handler(sig, frame):
     print ("Goodbye 👋")
     sys.exit(0)
+
+
+def validate_domain(domain_path: Text):
+    from rasa.core.domain import Domain, check_domain_sanity, InvalidDomain
+
+    try:
+        domain = Domain.load(domain_path)
+        check_domain_sanity(domain)
+    except InvalidDomain as e:
+        print_error("The provided domain file could not be loaded. Error: {}".format(e))
+        sys.exit(1)
