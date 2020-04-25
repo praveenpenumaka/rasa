@@ -20,7 +20,7 @@ Getting Credentials
   2. Activate the following features:
 
     - `Interactive Components <https://api.slack.com/reference/block-kit/interactive-components>`_ (if your bot uses any, e.g. buttons)
-    - Event subscriptions
+    - Event subscriptions ( you need running rasa server to enable this )
     - Bot users
     - Permissions (for basic functionality you should subscribe to the
       following events: ``message.channel``, ``message.groups``,
@@ -54,7 +54,7 @@ e.g. using:
 You need to supply a ``credentials.yml`` with the following content:
 
 - The ``slack_channel`` can be a channel or an individual person that the bot should listen to for communications, in
-  addition to the default behavior of listening for direct messages and app mentions, i.e. "@app_name".
+  addition to the default behavior of listening for direct messages and app mentions, i.e. "@app_name". ( Remove # to un-comment slack creadentials )
 
 
 - Use the entry for ``Bot User OAuth Access Token`` in the
